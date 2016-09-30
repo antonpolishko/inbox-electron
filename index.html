@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+<head>
+    <title>Google Inbox</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.scss">
+</head>
+
+<body>
+<div id="controls">
+    <i class="fa fa-close" id="close-btn"></i>
+    <i class="fa fa-plus-square" id="max-btn"></i>
+    <i class="fa fa-minus-square" id="min-btn"></i>
+</div>
+<webview id="webview" src="https://inbox.google.com"
+         style="position: absolute; width: 100%; height: calc(100vh - 26px);"></webview>
+
+<script src="js/titlebar.js"></script>
+<script src="js/webview.js"></script>
+</body>
 </html>
