@@ -1,6 +1,7 @@
 #controls {
   background-color: #4285f4;
-  overflow: auto; }
+  overflow: auto;
+  -webkit-app-region: drag; }
 
 #controls i {
   color: #fff;
@@ -12,8 +13,4 @@
   #controls i#close-btn:hover {
     background-color: #D13F31; }
 
-body {
-  margin: 0;
-  overflow: hidden; }
-
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=titlebar.css.map */

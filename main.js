@@ -1,4 +1,17 @@
 const {app, BrowserWindow} = require('electron');
+const {Menu, Tray} = require('electron');
+
+let tray = null;
+
+app.on('ready', () => {
+    tray = new Tray('/Users/jshep/IdeaProjects/Inbox/logo.ico');
+    const contextMenu = Menu.buildFromTemplate([
+        {label: 'Open', type: 'radio'},
+        {label: 'Exit', type: 'radio'}
+    ]);
+    tray.setToolTip('Inbox');
+    tray.setContextMenu(contextMenu)
+});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -6,7 +19,16 @@ let win;
 
 function createWindow() {
     // Create the browser window.
-    win = new BrowserWindow({height: 700, width: 1000, frame: false, center: true});
+    win = new BrowserWindow({
+        height: 700,
+        width: 1000,
+        minHeight: 500,
+        minWidth: 800,
+        frame: false,
+        center: true,
+        title: "Inbox",
+        icon: "/Users/jshep/IdeaProjects/Inbox/logo.ico",
+        backgroundColor: '#4285f4'});
 
     // and load the index.html of the app.
     win.loadURL(`file://${__dirname}/index.html`);
