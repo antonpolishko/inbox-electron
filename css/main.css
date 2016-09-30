@@ -8,12 +8,10 @@
   float: right;
   padding: 5px 15px;
   -webkit-app-region: no-drag; }
-
-#controls i:hover {
-  background-color: #71A3F7; }
-
-#controls #close-btn:hover {
-  background-color: #D13F31; }
+  #controls i:hover {
+    background-color: #71A3F7; }
+  #controls i#close-btn:hover {
+    background-color: #D13F31; }
 
 body {
   margin: 0;
