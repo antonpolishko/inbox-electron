@@ -3,7 +3,7 @@ onload = () => {
 
     const loadstop = () => {
         webview.insertCSS("::-webkit-scrollbar {display: none;}");
-};
+    };
 
-webview.addEventListener('did-stop-loading', loadstop);
+webview.addEventListener('load-commit', loadstop);
 };
