@@ -18,7 +18,7 @@ function createWindow() {
         frame: false,
         center: true,
         title: "Inbox",
-        icon: "/Users/jshep/IdeaProjects/Inbox/logo.ico",
+        icon: "icon.ico",
         backgroundColor: '#F5F5F5'
     });
 
@@ -31,7 +31,7 @@ function createWindow() {
         event.preventDefault();
         win.hide();
 
-        tray = new Tray('/Users/jshep/IdeaProjects/Inbox/logo.ico');
+        tray = new Tray('icon.ico');
         const contextMenu = Menu.buildFromTemplate([
             new MenuItem({
                 label: "Open",
@@ -58,7 +58,7 @@ function createWindow() {
     win.loadURL(`file://${__dirname}/index.html`);
 
     // Open the DevTools.
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
 
     // Emitted when the window is closed.
     win.on('closed', () => {
