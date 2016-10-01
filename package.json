@@ -1,8 +1,8 @@
 {
-  "name"    : "Inbox",
-  "version" : "1.0.0",
-  "description" : "Desktop client for Google Inbox",
-  "main"    : "main.js",
+  "name": "Inbox",
+  "version": "1.0.0",
+  "description": "Desktop client for Google Inbox",
+  "main": "main.js",
   "author": "Jerred Shepherd",
   "license": "GNU GPL 3",
   "repository": {

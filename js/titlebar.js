@@ -1,5 +1,9 @@
 const remote = require('electron').remote;
 
+let myNotification = new Notification('Inbox', {
+    body: 'Welcome to Inbox!'
+});
+
 document.getElementById("min-btn").addEventListener("click", function (e) {
     var window = remote.getCurrentWindow();
     window.minimize();

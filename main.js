@@ -1,34 +1,58 @@
-const {app, BrowserWindow} = require('electron');
-const {Menu, Tray} = require('electron');
-
-let tray = null;
-
-app.on('ready', () => {
-    tray = new Tray('/Users/jshep/IdeaProjects/Inbox/logo.ico');
-    const contextMenu = Menu.buildFromTemplate([
-        {label: 'Open', type: 'radio'},
-        {label: 'Exit', type: 'radio'}
-    ]);
-    tray.setToolTip('Inbox');
-    tray.setContextMenu(contextMenu)
-});
+const electron = require('electron');
+const {app, BrowserWindow, Menu, MenuItem, Tray} = electron;
+var tray = null;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 
 function createWindow() {
+    const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
+
     // Create the browser window.
     win = new BrowserWindow({
-        height: 700,
-        width: 1000,
-        minHeight: 500,
-        minWidth: 800,
+        height: height / 1.25,
+        width: width / 1.25,
+        minHeight: height / 2,
+        minWidth: width / 2,
         frame: false,
         center: true,
         title: "Inbox",
         icon: "/Users/jshep/IdeaProjects/Inbox/logo.ico",
-        backgroundColor: '#4285f4'});
+        backgroundColor: '#F5F5F5'
+    });
+
+    win.on('show', function (event) {
+        event.preventDefault();
+        tray.destroy();
+    });
+
+    win.on('minimize', function (event) {
+        event.preventDefault();
+        win.hide();
+
+        tray = new Tray('/Users/jshep/IdeaProjects/Inbox/logo.ico');
+        const contextMenu = Menu.buildFromTemplate([
+            new MenuItem({
+                label: "Open",
+                type: "normal",
+                click: function () {
+                    "use strict";
+                    win.show();
+                }
+            }),
+            new MenuItem({
+                type: "separator"
+            }),
+            new MenuItem({
+                label: "Exit",
+                type: "normal",
+                role: "quit"
+            })
+        ]);
+        tray.setToolTip('Inbox');
+        tray.setContextMenu(contextMenu);
+    });
 
     // and load the index.html of the app.
     win.loadURL(`file://${__dirname}/index.html`);
