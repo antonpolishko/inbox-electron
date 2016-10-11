@@ -1,6 +1,7 @@
 #controls {
   background-color: #4285f4;
-  overflow: auto; }
+  overflow: auto;
+  -webkit-app-region: drag; }
 
 #controls i {
   color: #fff;
