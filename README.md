@@ -1,5 +1,6 @@
 # Inbox
 Electron app for Google Inbox
 
-Screenshot
+Screenshots
+<img src="http://imgur.com/VYlldYW.jpg">
 <img src="https://i.imgur.com/LcDqGFY.jpg">
